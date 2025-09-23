@@ -29,7 +29,7 @@ def consume(topic, config):
       # consumer polls the topic and prints any incoming messages
       msg = consumer.poll(1.0)
       if msg is not None and msg.error() is None:
-        weather_data = json.loads(msg.value().decode('utf-8'))
+        weather_data = msg.value().decode('utf-8')
         print(weather_data)
         
   except KeyboardInterrupt:
